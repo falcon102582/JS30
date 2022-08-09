@@ -43,8 +43,33 @@
       width: 100px;
     }
   </style>
-
   <script>
+    const base = document.querySelector("#base");
+    const spacing = document.querySelector("#spacing");
+    const blur = document.querySelector("#blur");
+    const img = document.querySelector("img");
+
+    const blurEffect = function(){
+      img.style.filter = `blur(${blur.value}px)`;
+    };
+
+    const imgSpacing = function(){
+      img.style.border = `${spacing.value}px solid ${base.value}`;
+    };
+
+    const imgColor = function(){
+      img.style.border = `${spacing.value}px solid ${base.value}`;
+    };
+
+    spacing.addEventListener("input", imgSpacing);
+
+    base.addEventListener("input", imgColor);
+
+    blur.addEventListener("input", blurEffect);
+
+    blurEffect();
+    imgColor();
+    imgSpacing();
   </script>
 
 </body>
